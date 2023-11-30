@@ -1,0 +1,124 @@
+<!-- mentor-registration.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentor Registration</title>
+</head>
+<body>
+
+  <h2>Mentor Registration</h2>
+  <form action="/auth/register" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="domain">Domain:</label>
+    <input type="text" id="domain" name="domain" required><br>
+
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" required><br>
+
+    <label for="experience">Experience:</label>
+    <input type="text" id="experience" name="experience" required><br>
+
+    <input type="hidden" name="isMentor" value="true">
+
+    <button type="submit">Register as Mentor</button>
+  </form>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Page</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <style>
+    body {
+      background-color: #8f1a64;
+    }
+  </style>
+</head>
+<body class="flex justify-center items-center h-screen">
+
+  <div class="bg-white rounded-lg p-8 w-96">
+    <div class="flex mb-4">
+      <button id="userTab" class="w-1/2 py-2 px-4 rounded-tl-md rounded-bl-md text-white bg-purple-600">User</button>
+      <button id="mentorTab" class="w-1/2 py-2 px-4 rounded-tr-md rounded-br-md text-white bg-purple-600">Mentor</button>
+    </div>
+
+    <div id="userForm" class="mb-4">
+      <!-- User Registration Form -->
+      <form action="/auth/register" method="POST">
+        <!-- Add user registration form fields here -->
+        <label for="userUsername">Username:</label>
+        <input type="text" id="userUsername" name="username" required class="w-full p-2 mb-2 rounded border">
+
+        <label for="userPassword">Password:</label>
+        <input type="password" id="userPassword" name="password" required class="w-full p-2 mb-2 rounded border">
+
+        <button type="submit" class="w-full bg-purple-600 text-white p-2 rounded">Register as User</button>
+      </form>
+    </div>
+
+    <div id="mentorForm">
+      <!-- Mentor Registration Form -->
+      <form action="/auth/register" method="POST">
+        <!-- Add mentor registration form fields here -->
+        <label for="mentorUsername">Username:</label>
+        <input type="text" id="mentorUsername" name="username" required class="w-full p-2 mb-2 rounded border">
+
+        <label for="mentorPassword">Password:</label>
+        <input type="password" id="mentorPassword" name="password" required class="w-full p-2 mb-2 rounded border">
+
+        <label for="mentorName">Name:</label>
+        <input type="text" id="mentorName" name="name" required class="w-full p-2 mb-2 rounded border">
+
+        <label for="mentorDomain">Domain:</label>
+        <input type="text" id="mentorDomain" name="domain" required class="w-full p-2 mb-2 rounded border">
+
+        <label for="mentorLocation">Location:</label>
+        <input type="text" id="mentorLocation" name="location" required class="w-full p-2 mb-2 rounded border">
+
+        <label for="mentorExperience">Experience:</label>
+        <input type="text" id="mentorExperience" name="experience" required class="w-full p-2 mb-2 rounded border">
+
+        <button type="submit" class="w-full bg-purple-600 text-white p-2 rounded">Register as Mentor</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to switch between user and mentor forms
+    const userTab = document.getElementById('userTab');
+    const mentorTab = document.getElementById('mentorTab');
+    const userForm = document.getElementById('userForm');
+    const mentorForm = document.getElementById('mentorForm');
+
+    userTab.addEventListener('click', () => {
+      userTab.classList.add('text-white', 'bg-purple-600');
+      mentorTab.classList.remove('text-white', 'bg-purple-600');
+      userForm.style.display = 'block';
+      mentorForm.style.display = 'none';
+    });
+
+    mentorTab.addEventListener('click', () => {
+      mentorTab.classList.add('text-white', 'bg-purple-600');
+      userTab.classList.remove('text-white', 'bg-purple-600');
+      mentorForm.style.display = 'block';
+      userForm.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>
+

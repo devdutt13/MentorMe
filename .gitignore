@@ -1,0 +1,9 @@
+# Node Modules
+node_modules
+# Package lock file
+package-lock.json
+# Tailwind CSS configuration file
+tailwind.config.js
+
+# PostCSS configuration file
+postcss.config.js

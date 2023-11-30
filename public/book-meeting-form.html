@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Meeting</title>
+</head>
+<body>
+  <h2>Book a Meeting</h2>
+  
+  <form action="/book-meeting" method="POST">
+    <label for="userId">User ID:</label>
+    <input type="text" id="userId" name="userId" required><br>
+  
+    <label for="mentorId">Mentor ID:</label>
+    <input type="text" id="mentorId" name="mentorId" required><br>
+  
+    <label for="date">Select Date:</label>
+    <select id="date" name="date" required>
+      <!-- Options for date -->
+    </select><br>
+  
+    <label for="timeSlot">Select Time Slot:</label>
+    <select id="timeSlot" name="timeSlot" required>
+      <!-- Options for time slots -->
+    </select><br>
+  
+    <button type="submit">Book Meeting</button>
+  </form>
+  
+
+  <script>
+    // Populate dates dropdown dynamically for the next 30 days
+    const dateDropdown = document.getElementById('date');
+
+    function generateDates() {
+      const today = new Date();
+      for (let i = 0; i < 30; i++) {
+        const date = new Date(today);
+        date.setDate(today.getDate() + i);
+        const formattedDate = date.toISOString().split('T')[0];
+        
+        const option = document.createElement('option');
+        option.value = formattedDate;
+        option.text = formattedDate;
+        dateDropdown.add(option);
+      }
+    }
+
+    // Populate time slots dropdown dynamically
+    const timeSlotDropdown = document.getElementById('timeSlot');
+
+    function generateTimeSlots() {
+      const startTime = 9 * 60; // 9:00 AM in minutes
+      const endTime = 21 * 60; // 9:45 PM in minutes
+      const duration = 45; // 45 minutes duration
+      const gap = 15; // 15 minutes gap between slots
+
+      for (let time = startTime; time < endTime; time += duration + gap) {
+        const startHours = Math.floor(time / 60);
+        const startMinutes = time % 60;
+        const endHours = Math.floor((time + duration) / 60);
+        const endMinutes = (time + duration) % 60;
+
+        const formattedTime = `${String(startHours).padStart(2, '0')}:${String(startMinutes).padStart(2, '0')} - ${String(endHours).padStart(2, '0')}:${String(endMinutes).padStart(2, '0')}`;
+        
+        const option = document.createElement('option');
+        option.value = formattedTime;
+        option.text = formattedTime;
+        timeSlotDropdown.add(option);
+      }
+    }
+
+    // Call the functions to generate dates and time slots when the page loads
+    generateDates();
+    generateTimeSlots();
+  </script>
+</body>
+</html>
