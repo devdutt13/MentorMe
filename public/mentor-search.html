@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Mentors</title>
+    <!-- Include your Tailwind CSS file -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    
+</head>
+
+<body class="bg-fuchsia-100 text-black">
+    <!-- Navbar -->
+    <nav class="bg-fuchsia-900 ">
+        <div class="container mx-auto flex justify-between items-center py-2">
+            <h1 class="text-2xl font-bold text-white">Your Application</h1>
+            <div class="flex space-x-4">
+                <a href="#" class="text-white">Login</a>
+                <a href="#" class="text-white">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Search bar section -->
+    <section class="py-8 text-center">
+        <div class="max-w-screen-md mx-auto">
+            <div class="flex items-center justify-center">
+                <input type="text" class="p-2 w-96 rounded-l-lg focus:outline-none" placeholder="Search...">
+                <button class="bg-purple-600 p-2 rounded-r-lg">
+                    Search
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentors section -->
+    <section class="py-4">
+        <div class="max-w-screen-md mx-auto">
+            <h2 class="text-2xl font-bold mb-4 text-center">Mentors</h2>
+
+            <!-- Mentor carousel -->
+            <div class="owl-carousel owl-theme max-w-screen-md">
+                <!-- Mentor Tile 1 -->
+                <div class="item bg-white p-6 rounded-lg  max-w-lg"> <!-- Adjusted max-w-lg for larger width -->
+                    <img src="images/profile1.png" alt="Mentor 1" class="h-4/5 w-96 rounded-full mb-4 mx-auto">
+                    <div>
+                        <p class="text-lg font-bold mb-1">Name:</p>
+                        <p class="mb-2">Information about mentor 1.</p>
+                        <p class="text-lg font-bold mb-1">Experience:</p>
+                        <p class="mb-2">Information about mentor 1.</p>
+                        <p class="text-lg font-bold mb-1">Location:</p>
+                        <p>Information about mentor 1.</p>
+                    </div>
+                </div>
+
+                <!-- Mentor Tile 2 -->
+                <div class="item bg-white p-6 rounded-lg mx-auto max-w-lg"> <!-- Adjusted max-w-lg for larger width -->
+                    <img src="images/profile2.png" alt="Mentor 2" class="h-4/5 w-4/5 rounded-full mb-4 mx-auto">
+                    <div>
+                        <p class="text-lg font-bold mb-1">Name:</p>
+                        <p class="mb-2">Information about mentor 2.</p>
+                        <p class="text-lg font-bold mb-1">Experience:</p>
+                        <p class="mb-2">Information about mentor 2.</p>
+                        <p class="text-lg font-bold mb-1">Location:</p>
+                        <p>Information about mentor 2.</p>
+                    </div>
+                </div>
+                <div class="item bg-white p-6 rounded-lg mx-auto max-w-lg"> <!-- Adjusted max-w-lg for larger width -->
+                    <img src="images/profile3.png" alt="Mentor 2" class="h-4/5 w-4/5 rounded-full mb-4 mx-auto">
+                    <div>
+                        <p class="text-lg font-bold mb-1">Name:</p>
+                        <p class="mb-2">Information about mentor 2.</p>
+                        <p class="text-lg font-bold mb-1">Experience:</p>
+                        <p class="mb-2">Information about mentor 2.</p>
+                        <p class="text-lg font-bold mb-1">Location:</p>
+                        <p>Information about mentor 2.</p>
+                    </div>
+                </div>
+                <!-- Add more Mentor Tiles as needed -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Owl Carousel JS from CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- Initialize Owl Carousel -->
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                items: 3,  // Number of items to display at a time
+                loop: true,
+                margin: 20,
+                nav: true,
+                navText: ['<', '>'],
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,56 +1,24 @@
-<!-- mentor-registration.html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mentor Registration</title>
-</head>
-<body>
 
-  <h2>Mentor Registration</h2>
-  <form action="/auth/register" method="POST">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required><br>
-
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required><br>
-
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required><br>
-
-    <label for="domain">Domain:</label>
-    <input type="text" id="domain" name="domain" required><br>
-
-    <label for="location">Location:</label>
-    <input type="text" id="location" name="location" required><br>
-
-    <label for="experience">Experience:</label>
-    <input type="text" id="experience" name="experience" required><br>
-
-    <input type="hidden" name="isMentor" value="true">
-
-    <button type="submit">Register as Mentor</button>
-  </form>
-
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registration Page</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-  <style>
-    body {
-      background-color: #8f1a64;
-    }
-  </style>
-</head>
-<body class="flex justify-center items-center h-screen">
+  <link rel="stylesheet" href="styles/style.css">
 
-  <div class="bg-white rounded-lg p-8 w-96">
+</head>
+<body class="bg-fuchsia-100 text-black">
+  <nav class="bg-fuchsia-900 ">
+    <div class="container mx-auto flex justify-between items-center py-2">
+        <h1 class="text-2xl font-bold text-white">Your Application</h1>
+        <div class="flex space-x-4">
+            <a href="#" class="text-white">Login</a>
+            <a href="#" class="text-white">Sign Up</a>
+        </div>
+    </div>
+</nav>
+<div class="bg-white rounded-lg p-8 w-96 mx-auto mt-8">
     <div class="flex mb-4">
       <button id="userTab" class="w-1/2 py-2 px-4 rounded-tl-md rounded-bl-md text-white bg-purple-600">User</button>
       <button id="mentorTab" class="w-1/2 py-2 px-4 rounded-tr-md rounded-br-md text-white bg-purple-600">Mentor</button>
@@ -103,14 +71,19 @@
     const mentorTab = document.getElementById('mentorTab');
     const userForm = document.getElementById('userForm');
     const mentorForm = document.getElementById('mentorForm');
-
+  
+    // Set User tab as initially selected
+    userTab.classList.add('text-white', 'bg-purple-600');
+    mentorTab.classList.remove('text-white', 'bg-purple-600');
+    mentorForm.style.display = 'none';
+  
     userTab.addEventListener('click', () => {
       userTab.classList.add('text-white', 'bg-purple-600');
       mentorTab.classList.remove('text-white', 'bg-purple-600');
       userForm.style.display = 'block';
       mentorForm.style.display = 'none';
     });
-
+  
     mentorTab.addEventListener('click', () => {
       mentorTab.classList.add('text-white', 'bg-purple-600');
       userTab.classList.remove('text-white', 'bg-purple-600');
