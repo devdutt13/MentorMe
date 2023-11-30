@@ -18,25 +18,65 @@
     </nav>
 
   <div class="bg-white rounded-lg p-8 w-96 mx-auto mt-8">
-    <h2 class="text-2xl font-bold text-center mb-2">Login</h2>
+    <div class="flex mb-4">
+      <button id="userLoginTab" class="w-1/2 py-2 px-4 rounded-tl-md rounded-bl-md text-white bg-purple-600">User</button>
+      <button id="mentorLoginTab" class="w-1/2 py-2 px-4 rounded-tr-md rounded-br-md text-white bg-purple-600">Mentor</button>
+    </div>
 
-    <!-- Login form -->
-    <form action="/auth/login" method="POST">
-      <!-- Username field -->
-      <label for="username" class="block mb-2">Username:</label>
-      <input type="text" id="username" name="username" required class="w-full p-2 mb-4 rounded border">
+    <div id="userLoginForm" >
+      
+      <!-- User login form -->
+      <form action="/auth/login/user" method="POST">
+        <!-- Add user login form fields here -->
+        <label for="userUsername">Username:</label>
+        <input type="text" id="userUsername" name="username" required class="w-full p-2 mb-2 rounded border">
 
-      <!-- Password field -->
-      <label for="password" class="block mb-2">Password:</label>
-      <input type="password" id="password" name="password" required class="w-full p-2 mb-4 rounded border">
+        <label for="userPassword">Password:</label>
+        <input type="password" id="userPassword" name="password" required class="w-full p-2 mb-2 rounded border">
 
-      <!-- Login button -->
-      <button type="submit" class="w-full bg-purple-600 text-white p-2 rounded">Login</button>
-    </form>
+        <button type="submit" class="w-full bg-purple-600 text-white p-2 rounded">Login as User</button>
+      </form>
+    </div>
+
+    <div id="mentorLoginForm">
+      <!-- Mentor login form -->
+      <form action="/auth/login/mentor" method="POST">
+        <!-- Add mentor login form fields here -->
+        <label for="mentorUsername">Username:</label>
+        <input type="text" id="mentorUsername" name="username" required class="w-full p-2 mb-2 rounded border">
+
+        <label for="mentorPassword">Password:</label>
+        <input type="password" id="mentorPassword" name="password" required class="w-full p-2 mb-2 rounded border">
+
+        <button type="submit" class="w-full bg-purple-600 text-white p-2 rounded">Login as Mentor</button>
+      </form>
+    </div>
   </div>
 
   <script>
-    // JavaScript code remains unchanged
+    const userTab = document.getElementById('userLoginTab');
+    const mentorTab = document.getElementById('mentorLoginTab');
+    const userForm = document.getElementById('userLoginForm');
+    const mentorForm = document.getElementById('mentorLoginForm');
+  
+    // Set User tab as initially selected
+    userTab.classList.add('text-white', 'bg-purple-600');
+    mentorTab.classList.remove('text-white', 'bg-purple-600');
+    mentorForm.style.display = 'none';
+  
+    userTab.addEventListener('click', () => {
+      userTab.classList.add('text-white', 'bg-purple-600');
+      mentorTab.classList.remove('text-white', 'bg-purple-600');
+      userForm.style.display = 'block';
+      mentorForm.style.display = 'none';
+    });
+  
+    mentorTab.addEventListener('click', () => {
+      mentorTab.classList.add('text-white', 'bg-purple-600');
+      userTab.classList.remove('text-white', 'bg-purple-600');
+      mentorForm.style.display = 'block';
+      userForm.style.display = 'none';
+    });
   </script>
 </body>
 </html>
