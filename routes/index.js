@@ -2,6 +2,7 @@
 const express = require('express');
 const authRoutes = require('./authRoutes');
 const meetingRoutes = require('./meetingRoutes');
+const mentorRoutes = require('./mentorRoutes');
 const path = require('path');
 
 const router = express.Router();
@@ -11,18 +12,18 @@ router.use('/auth', authRoutes);
 
 // Meeting routes (including the protected route)
 router.use('/meeting', meetingRoutes);
-
+router.use('/mentor', mentorRoutes);
 // Serve registration and login forms
-router.get('/user-registration', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/user-registration.html'));
+router.get('/registration', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/registration.html'));
 });
 
-router.get('/mentor-registration', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/mentor-registration.html'));
+router.get('/registration', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/registration.html'));
 });
-router.get('/mentor-search', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/mentor-search.html'));
-});
+// router.get('/mentor-search', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../public/mentor-search.html'));
+// });
 router.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/login.html'));
 });

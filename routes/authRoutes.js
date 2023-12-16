@@ -46,8 +46,7 @@ router.post('/register', async (req, res) => {
     }
   });
 
-// User Login
-router.post('/login', async (req, res) => {
+router.post('/login/user', async (req, res) => {
   try {
     const { username, password } = req.body;
 
@@ -56,8 +55,8 @@ router.post('/login', async (req, res) => {
 
     // Check if the user exists and the password is correct
     if (user && await bcrypt.compare(password, user.password)) {
-      // Generate a JWT
-      const token = jwt.sign({ userId: user._id, username: user.username }, 'your-secret-key');
+      // Generate a JWT for the user
+      const token = jwt.sign({ userId: user._id, username: user.username, role: 'user' }, 'your-secret-key');
 
       // Send the JWT to the client
       res.json({ token });
@@ -68,5 +67,27 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+router.post('/login/mentor', async (req, res) => {
+  try {
+    const { username, password } = req.body;
+
+    // Find the mentor by username
+    const mentor = await Mentor.findOne({ username });
+
+    // Check if the mentor exists and the password is correct
+    if (mentor && await bcrypt.compare(password, mentor.password)) {
+      // Generate a JWT for the mentor
+      const token = jwt.sign({ userId: mentor._id, username: mentor.username, role: 'mentor' }, 'your-secret-key');
+
+      // Send the JWT to the client
+      res.json({ token });
+    } else {
+      res.status(401).json({ message: 'Invalid username or password.' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 
 module.exports = router;

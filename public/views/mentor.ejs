@@ -1,4 +1,4 @@
-<!-- mentors.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Available Mentors</title>
     <!-- Include your Tailwind CSS file -->
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
@@ -45,7 +45,7 @@
             <div class="owl-carousel owl-theme max-w-screen-md">
                 <% mentors.forEach(mentor => { %>
                     <div class="item bg-white p-6 rounded-lg max-w-lg">
-                        <img src="images/profile1.png" alt="<%= mentor.name %>" class="h-4/5 w-96 rounded-full mb-4 mx-auto">
+                        <img src="../images/profile1.png" alt="<%= mentor.name %>" class="h-4/5 w-96 rounded-full mb-4 mx-auto">
                         <div>
                             <p class="text-lg font-bold mb-1">Name:</p>
                             <p class="mb-2"><%= mentor.name %></p>
@@ -55,6 +55,8 @@
                             <p class="mb-2"><%= mentor.domain %></p>
                             <p class="text-lg font-bold mb-1">Location:</p>
                             <p><%= mentor.location %></p>
+                            <!-- Link to View Detailed Profile -->
+                        <a href="/mentor/<%= mentor._id %>" class="bg-fuchsia-900 p-2 mt-2 rounded-lg text-white inline-block">View Profile</a>
                         </div>
                     </div>
                 <% }); %>
